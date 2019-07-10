@@ -1,6 +1,6 @@
 class Api::V1::ExercisesController < ApplicationController
 
-  def fisher_yates(array)
+  def fisher_yates_array_shuffle(array)
     counter = array.length - 1
     while counter > 0
       random_index = rand(counter)
@@ -16,7 +16,7 @@ class Api::V1::ExercisesController < ApplicationController
     @words = Word.order("RANDOM()").limit(10)
     exercises = @words.map { |word| {
       :word => word.text,
-      :scrambled => fisher_yates(word.text.split("")).join("")
+      :scrambled => fisher_yates_array_shuffle(word.text.split("")).join("")
     }}
     render json: exercises
   end
