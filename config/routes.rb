@@ -5,6 +5,8 @@ Rails.application.routes.draw do
 
   resources :words
 
+  get '/challenges/', to: 'challenges#index'
+
  end
 
 end
