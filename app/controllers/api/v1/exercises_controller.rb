@@ -1,4 +1,4 @@
-class Api::V1::ChallengesController < ApplicationController
+class Api::V1::ExercisesController < ApplicationController
 
   def fisher_yates(array)
     counter = array.length - 1
@@ -11,13 +11,13 @@ class Api::V1::ChallengesController < ApplicationController
     array
   end
 
-  # GET /challenge
+  # GET /exercises
   def index
     @words = Word.order("RANDOM()").limit(10)
-    challenges = @words.map { |word| {
+    exercises = @words.map { |word| {
       :word => word.text,
       :scrambled => fisher_yates(word.text.split("")).join("")
     }}
-    render json: challenges
+    render json: exercises
   end
 end
