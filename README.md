@@ -1,24 +1,29 @@
-# README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# WORD SPELLING CHALLENGE API
 
-Things you may want to cover:
+This is a really simple API containing:
+- `Word` resource `text:string`
+- Exercises controller, the endpoint `exercises` will return an array of 10 hashes like:
+```
+  :word => word.text
+  :scrambled => #the scrambled word.text
+```
 
-* Ruby version
+## LIVE DEMO
+You can find the api running [HERE](https://be-word-spelling-challenge.herokuapp.com/api/v1/words)
 
-* System dependencies
+## dependencies
+- Ruby 2.6
+- Rails 5.1
+- Postgress
 
-* Configuration
+## Running the project
 
-* Database creation
+To run the project locally just run
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```
+  bundle install
+  rake db:create
+  rake db:seed
+  rails s
+```
